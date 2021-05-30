@@ -18,15 +18,13 @@
 - addons/sourcemod/translations/UNO.phrases.txt içindeki ifadeleri değiştirebilirsiniz.
 - You can modify the phrases in addons/sourcemod/translations/UNO.phrases.txt.
 -
--  Veritabanı kurulumu : addons/sourcemod/configs/databases.cfg
-    {
-        "Uno_DB"{
-            "driver"	"mysql"
-            "host"		""
-            "database"	""
-            "user"		""
-            "pass"		""
-        }
+-  Veritabanı kurulumu : addons/sourcemod/configs/databases.cfg :
+    "Uno_DB"{
+        "driver"	"mysql"
+        "host"		""
+        "database"	""
+        "user"		""
+        "pass"		""
     }
 
 ## Usage ##
