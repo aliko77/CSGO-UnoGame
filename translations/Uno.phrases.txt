@@ -1,0 +1,403 @@
+"Phrases"
+{
+    "ClientLeaveRoom"
+    {
+		"tr" "odadan ayrıldı."
+        "en" "leave the room."
+    }
+    "DatabaseError"
+    {
+        "#format" "{1:s}"
+        "tr""Veritabanı hatası: {1} ."
+        "en" "Database error: {1} ."
+    }
+    "TopMenuGame"
+    {
+		"tr""Top - 5 Oyun Kazanmalar"
+        "en" "Top - 5 Game Win"
+    }
+    "TopMenuScore"
+    {
+		"tr""Top - 5 Skorlar"
+        "en" "Top - 5 Scores"
+    }   
+    "NoData"
+    {
+		"tr""Veri yok."
+        "en" "No data."
+    }
+    "MenuBack"
+    {
+        "tr""Geri"
+        "en" "Back"
+    }
+    "TotalWin"
+    {
+        "tr""Toplam Kazanma"
+        "en" "Total Win"
+    }
+    "TotalScore"
+    {
+        "tr""Toplam Skor"
+        "en" "Total Score"
+    }
+    "LeaveInfo"
+    {
+        "tr""Odadan ayrılmak için !ayril"
+        "en" "!leave to leave the room"
+    }
+    "MenuCurrentRooms"
+    {
+        "tr""Mevcut odalar"
+        "en" "Available rooms"
+    }
+    "MenuCreateNewRoom"
+    {
+        "tr""Yeni oda oluştur"
+        "en" "Create new room"
+    }
+    "MenuClientCurrentRoom"
+    {
+        "tr""Oyunda olduğun odan"
+        "en" "Room you are in"
+    }
+    "MenuStatistics"
+    {
+        "tr""İstatistikler"
+        "en" "Statistics"
+    }
+    "MenuHowtoPlay"
+    {
+        "tr""Nasıl oynanır ?"
+        "en" "How to play ?"
+    }
+    "NoCurrentRoom"
+    {
+        "tr""Şuanda mevcut bir oda yok."
+        "en" "No created room."
+    }
+    "Looking"
+    {
+        "tr""Aranıyor"
+        "en" "Avaible"
+    }
+    "Started"
+    {
+        "tr""Oyunda"
+        "en" "Started"
+    }
+    "Full"
+    {
+        "tr""Dolu"
+        "en" "Full"
+    }
+    "MenuRoomInfoItem"
+    {
+        "#format" "{1:i},{2:i},{3:s}"
+        "tr""Oda {1} - {2}/10 ({3})"
+        "en" "Room {1} - {2}/10 ({3})"
+    }
+    "MenuPassTitle"
+    {
+        "tr""Lütfen oda şifresini giriniz!\nŞifreyi sohbete yazınız."
+        "en" "Please type the room password in chat."
+    }
+    "BackAndCancel"
+    {
+        "tr""Geri/İptal"
+        "en" "Back/Cancel"
+    }
+    "MenuNewRoomTitle"
+    {
+        "#format" "{1:i}"
+        "tr""Yeni Oda\nOda Şifresi: {1}\nOyuncu Kapasitesi: 0/10\nOlacak şekilde"
+        "en" "New Room\nRoom Password: {1}\nPlayer Capacity: 0/10\nShaped like"
+    }
+    "MenuItemCreateRoom"
+    {
+        "tr""Odayı oluştur"
+        "en" "Create the room"
+    }
+    "MenuItemRenounce"
+    {
+        "tr""Vazgeç"
+        "en" "Renounce"
+    }
+    "MenuTitleCurrentRooms"
+    {
+        "#format" "{1:i},{2:i},{3:s}"
+        "tr""Oda Numarası: {1}\nOda Şifresi: {2}\nOyuncular:\n{3}"
+        "en" "Room Id: {1}\nRoom Password: {2}\nPlayers:\n{3}"
+    }
+    "MenuWarningCurrentRooms"
+    {
+        "tr""Uyarı: Oyun başlaması için en az 2 kişi olunmalı."
+        "en" "Warning: There must be at least 2 player for the game to start."
+    }
+    "MenuItemLeaveRoom"
+    {
+        "tr""Odadan ayrıl"
+        "en" "Leave the room"
+    }
+    "MenuItemStartGame"
+    {
+        "tr""Oyunu başlat"
+        "en" "Start the game"
+    }
+    "MenuTitleClientCurrentRoom"
+    {
+        "#format" "{1:i},{2:i},{3:i},{4:s},{5:N}"
+        "tr""Oda Numarası: {1}\nOda Şifresi: {2}\nOyuncu Sayısı: {3}/10\n————————————\n|  Son Atılan Kart:\n|      {4}\n|\n|  Oyun Sırası:\n|      {5}"
+        "en" "Room Id: {1}\nRoom Password: {2}\nNumberOfPlayers: {3}/10\n————————————\n|  Last Card:\n|      {4}\n|\n|  Order of Moves:\n|      {5}"
+    }
+    "MenuTitleTop"
+    {
+        "tr""Skorlar"
+        "en" "Scores"
+    }
+    "HowToPlayInfo"
+    {
+        "tr""> Başlangıçta her oyuncuya rastgele 7 kart verilir.\n> Bütün oyuncular son atılan karta göre ortaya kart atarlar.\nOyuncunun atacağı kart Son Kartın Renk veya Sayısından olmalı.\n> Eğer oyucu da doğru kart yoksa ortadan bir kart çeker.\> Çektiği kart atılabiliyorsa atabilir.\n> Oyunun amacı elindeki kartların hepsini bitirmek.\n> Her kart ayrı puanlanır, oyun sonunda puanlar gösterilir.\n> Eğer bütün kartlar biterse en yüksek puanlı oyuncu kazanır."
+        "en" "> At the beginning, each player is randomly given 7 cards.\n> All players throw cards according to the last card discarded.\nThe player's card must be the Color or Number of the Last Card.\n> If the player also does not have the correct card, he draws a card from the middle.\n> If the card can be discarded, it can.\n>The purpose of the game is to finish all the cards in your hand.\n> Each card is scored separately.\n> If all the cards are gone, the player with the highest score wins."
+    }
+    "MenuInfoStatistic"
+    {
+        "#format" "{1:i},{2:i},{3:i}"
+        "tr""İstatistiklerim\nToplam Oynadığın Oyun: {1}\nToplam Skorun: {2}\nToplam Kazandığın Oyun: {3}"
+        "en" "My Stats\nTotal Games Played: {1}\nTotal Score: {2}\nTotal Games Won: {3}"
+    }
+    "MyStatistics"
+    {
+        "tr""İstatistiklerim"
+        "en" "My statistic"
+    }
+    "PrintCreatedNewRoom"
+    {
+        "#format" "{1:i}"
+        "tr""Yeni bir oda oluşturuldu. Oda numarası {1}."
+        "en" "A new room has been created. Room number {1}."
+    }
+    "DuyuruClientTakeCard"
+    {
+        "#format" "{1:N}"
+        "tr""{orange}{1}{green} yeni bir kart çekti."
+        "en" "{orange}{1}{green} drew a new card."
+    }
+    "PrintClientTakeCard"
+    {
+        "#format" "{1:s}"
+        "tr""Desteden {orange}{1} {green}kartını çektin."
+        "en" "You drew {orange}{1} {green}from the deck."
+    }
+    "KirmiziKart"
+    {
+        "tr""Kırmızı "
+        "en" "Red "
+    }
+    "SariKart"
+    {
+        "tr""Sarı "
+        "en" "Yellow "
+    }
+    "YesilKart"
+    {
+        "tr""Yeşil "
+        "en" "Green "
+    }
+    "MaviKart"
+    {
+        "tr""Mavi "
+        "en" "Blue "
+    }
+    "PasKart"
+    {
+        "tr""(Pas Geç)"
+        "en" "(Pass)"
+    }
+    "YönDegisKart"
+    {
+        "tr""(Yön Değiş)"
+        "en" "(Reverse)"
+    }
+    "DuyuruPutaCard"
+    {
+        "#format" "{1:N},{2:s}"
+        "tr""{1}, {orange}({2}){green} kartını oynadı."
+        "en" "{1}, played {orange}({2}){green} card."
+    }
+    "MenutTitleTop"
+    {
+        "tr""Son Oyun Puanları"
+        "en" "Last Game Scores"
+    }
+    "MenuItemTopWinner"
+    {
+        "#format" "{1:s},{2:i}"
+        "tr""[Kazanan] {1} (Skor: {2})"
+        "en" "[Winner] {1} (Score: {2})"
+    }
+    "MenuItemTop"
+    {
+        "#format" "{1:s},{2:i}"
+        "tr""{1} (Skor: {2})"
+        "en" "{1} (Score: {2})"
+    }
+    "PrintPlayerWonGame"
+    {
+        "#format" "{1:i},{2:i},{3:N}"
+        "tr""{orange}{1} {green}Numaralı odanın oyunu bitti. Kazanan isim {orange}{2}{green} puan ile {orange}{3}{green} tebrikler..."
+        "en" "Room number {orange}{1} {green} is game over. {orange}{3}{green} won with {orange}{2}{green} points, congratulations..."
+    }
+    "DuyuruNextPlayer"
+    {
+        "#format" "{1:N}"
+        "tr""Oynama sırası {orange}{1} {green}e geçti."
+        "en" "It's {orange}{1} {green}'s turn to play."
+    }
+    "CardEffect10"
+    {
+        "#format" "{1:N}"
+        "tr""Kart özelliği dolayısıyla {orange}{1}{green} Oyuncusu pas geçildi."
+        "en" "Player {orange}{1}{green} was passed due to card attribute."
+    }
+    "CardEffect11"
+    {
+        "#format" "{1:N}"
+        "tr""Kart özelliği dolayısıyla oyun sırası yön değiştirdi."
+        "en" "Due to the card feature, the game order has reverse."
+    }
+    "CardEffect12"
+    {
+        "#format" "{1:N}"
+        "tr""Kart özelliği dolayısıyla {orange}{1}{green} Oyuncusu pas geçildi ve ceza olarak {orange}2{green} kart verildi."
+        "en" "Due to card feature, {orange}{1}{green} was passed and {orange}2{green} card was awarded as punishment." 
+    }
+    "CardEffect13"
+    {
+        "#format" "{1:N}"
+        "tr""Kart özelliği dolayısıyla {orange}{1}{green} Oyuncusu pas geçildi ve ceza olarak {orange}4{green} kart verildi."
+        "en" "Due to card feature, {orange}{1}{green} was passed and {orange}4{green} card was awarded as punishment." 
+    }
+    "YourTotalCard"
+    {
+        "#format" "{1:i}"
+        "tr""Toplam Kart Sayın: {1}"
+        "en" "Total Card Count: {1}"
+    }
+    "TakeACard"
+    {
+        "tr""Yeni bir kart çek"
+        "en" "Draw a new card"
+    }
+    "DuyuruKartDagitimBitti"
+    {
+        "tr""Kartlar dağıtıldı. Oyun birazdan başlayacak."
+        "en" "The cards are dealt. The game will begin shortly."
+    }
+    "DuyuruBolSans"
+    {
+        "tr""Oyun başladı bol şans..."
+        "en" "The game has started, good luck..."
+    }
+    "PrintGameStartFirstyou"
+    {
+        "tr""Oyun başladı, ilk oyuncu sensin."
+        "en" "The game has started, you are the first player."
+    }
+    "DuyuruGameOver107"
+    {
+        "tr""Bütün kartlar kullanıldığı için oyun bitti. Kazanan açıklanıyor..."
+        "en" "Game over as all cards have been used. Winner to be announced..."
+    }
+    "PrintErrorRoomLeave"
+    {
+        "tr""Zaten bir odada değilsin."
+        "en" "You're not in a room anyway."
+    }
+    "PrintLeaveSpec"
+    {
+        "tr""İzleyiciden ayrıldın."
+        "en" "You left the spectator room."
+    }
+    "PrintLeaveRoom"
+    {
+        "#format" "{1:i}"
+        "tr""{orange}{1}{green} Numaralı odadan ayrıldın."
+        "en" "You left room {orange}{1}{green}."
+    }
+    "DuyuruDeleteRoomOwner"
+    {
+        "tr""Oda sahibi çıktığın için oda silindi."
+        "en" "Room deleted because owner left."
+    }
+    "PrintDeleteRoomOwner"
+    {
+        "tr""Oda sahibi olarak çıktığınız için oda silindi."
+        "en" "Room deleted because you left as room owner."
+    }
+    "DuyuruRoomLeave"
+    {
+        "#format" "{1:N}"
+        "tr""{1} Odadan ayrıldı."
+        "en" "{1} has left the room."
+    }
+    "DuyuruDeleteNoPlayer"
+    {
+        "tr""Odada oynayacak kimse kalmadığı için oda silindi."
+        "en" "The room was deleted because there was no one left to play with."
+    }
+    "PrintFullRoomStat"
+    {
+        "tr""Bu oda dolu. Lütfen başka odayı deneyiniz."
+        "en" "This room is full. Please try another room."
+    }
+    "PrintStartRoomStat"
+    {
+        "tr""Bu oda oyuna başlamış. Lütfen başka odayı deneyiniz."
+        "en" "This room has started the game. Please try another room."
+    }
+    "PrintTimeoutPass"
+    {
+        "tr""Şifre yazımı zaman aşımından dolayı iptal edildi."
+        "en" "Password writing has been canceled due to timeout."
+    }
+    "DuyuruTimeOutPlay"
+    {
+        "#format" "{1:N}"
+        "tr""{orange}{1} {green}Zamanında oynamadığı için sıra diğer oyuncuya geçti."
+        "en" "{orange}{1} {green}The turn passed to the other player because {green}did not play in time."
+    }
+    "PrintJoinSpec"
+    {
+        "#format" "{1:i}"
+        "tr""{orange}{1}{green} Numaralı odaya izleyici olarak katıldınız."
+        "en" "You have joined room {orange}{1}{green} as a spectator."
+    }
+    "MenuTitleSpec"
+    {
+        "#format" "{1:i}"
+        "tr""İzleyici olarak katıldın.\n{1} kişi izlemekte."
+        "en" "You joined as a viewer. \n{1} people are watching."
+    }
+    "LeaveButton"
+    {
+        "tr""Ayrıl."
+        "en" "Leave."
+    }
+    "PrintErrorPass"
+    {
+        "en" "Oda şifresini yanlış girdiniz. Lütfen tekrar deneyiniz."
+        "en" "You entered the wrong room password. Please try again."
+    }
+    "PrintJoinRoom"
+    {
+        "#format" "{1:i}"
+        "en" "{orange}{1}{green} Numaralı odaya giriş yaptınız."
+        "en" "You have entered room {orange}{1}{green}."
+    }
+    "DuyuruDeleteRoom"
+    {
+        "tr" "Odaya gelen olmadığı için oda silindi."
+        "en" "The room was deleted because there was no one in the room."
+    }
+}
