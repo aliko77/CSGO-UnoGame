@@ -37,12 +37,7 @@ int iClientRoomId[MAXPLAYERS + 1],
 
 char sRenkler[4][11] = {"K", "S", "Y", "M"};
 
-enum struct eUno_Menu
-{
-    Menu Uno_Menu;
-}
 Handle hPlayedTimer[MAXPLAYERS + 1];
-eUno_Menu gUno_Menu[MAXPLAYERS + 1];
 Database g_hDatabase = null;
 
 #include "scripting/UNO/commands.sp"

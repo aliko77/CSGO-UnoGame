@@ -106,7 +106,8 @@ stock void TakeCard(int client, int iRoomId, int specialEffect = 0)
                         SetNextPlayer(iRoomId);
                     }
                 }
-                ReloadMenuForRoomClients(iRoomId);
+                if(specialEffect == 0)
+                    ReloadMenuForRoomClients(iRoomId);
             }
         }
     }
@@ -489,7 +490,7 @@ stock void GetSpecialCardEffect(int iRoomId, int client, const char[] Kart)
     else if(StringToInt(Kart[1]) == 12)
     {
         TakeCard(client, iRoomId, 1);
-        TakeCard(client, iRoomId, 1);
+        TakeCard(client, iRoomId);
         OdadakilereDuyuru(iRoomId, "%t", "CardEffect12", client);
         SetNextPlayer(iRoomId);
         return;
@@ -499,7 +500,7 @@ stock void GetSpecialCardEffect(int iRoomId, int client, const char[] Kart)
         TakeCard(client, iRoomId, 1);
         TakeCard(client, iRoomId, 1);
         TakeCard(client, iRoomId, 1);
-        TakeCard(client, iRoomId, 1);
+        TakeCard(client, iRoomId);
         OdadakilereDuyuru(iRoomId, "%t", "CardEffect13", client);
         SetNextPlayer(iRoomId);
         return;
@@ -545,7 +546,7 @@ stock char[] GetRoomSonKart(int iRoomId, int info = 0)
     }
     return SonKart;
 }
-stock void DrawClientCards(int client)
+stock void DrawClientCards(int client, Menu hM)
 {
     char info[32],
       buf[48],
@@ -562,9 +563,9 @@ stock void DrawClientCards(int client)
             continue;
         GetTrieValue(trie, "KartSayisi", ToplamKartSayisi);
         Format(info, 32, "%t", "YourTotalCard", ToplamKartSayisi);
-        GetMenuTitle(gUno_Menu[client].Uno_Menu, tittle, 512);
+        GetMenuTitle(hM, tittle, 512);
         Format(tittle, 512, "%s%s", tittle, info);
-        SetMenuTitle(gUno_Menu[client].Uno_Menu, tittle);
+        SetMenuTitle(hM, tittle);
         for(int i = 0; i < 4; i++)
         {
             for(int ii = 0; ii <= 13; ii++)
@@ -586,14 +587,14 @@ stock void DrawClientCards(int client)
                         {
                             style = ITEMDRAW_DEFAULT;
                             itemSayisi++;
-                            if(GetMenuItemCount(gUno_Menu[client].Uno_Menu) == 0)
-                                AddMenuItem(gUno_Menu[client].Uno_Menu, info, display, style);
+                            if(GetMenuItemCount(hM) == 0)
+                                AddMenuItem(hM, info, display, style);
                             else
-                                InsertMenuItem(gUno_Menu[client].Uno_Menu, 0, info, display, style);
+                                InsertMenuItem(hM, 0, info, display, style);
                             continue;
                         }
                     }
-                    AddMenuItem(gUno_Menu[client].Uno_Menu, info, display, style);
+                    AddMenuItem(hM, info, display, style);
                 }
             }
         }
@@ -602,7 +603,7 @@ stock void DrawClientCards(int client)
             if(!bClientTakeCard[client])
             {
                 FormatEx(buf, 48, "%t", "TakeACard");
-                InsertMenuItem(gUno_Menu[client].Uno_Menu, 0, "TakeCard", buf, ITEMDRAW_DEFAULT);
+                InsertMenuItem(hM, 0, "TakeCard", buf, ITEMDRAW_DEFAULT);
             }
         }
         break;
@@ -625,7 +626,7 @@ stock int GetNowPlaying(int iRoomId)
 }
 stock void CardDistribution(int iRoomId)
 {
-    if(GetRoomGameStart(iRoomId) != 1 || GetRoomMembers(iRoomId) < 2)
+    if(GetRoomGameStart(iRoomId) != 1 || GetRoomMembers(iRoomId) < 1)
         return; // < 2 YAPMAYI UNUTMA
     int clients[10];
     for(int i = 0; i < GetArraySize(Rooms_Array); i++)

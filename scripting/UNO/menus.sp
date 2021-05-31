@@ -11,7 +11,7 @@ void MainMenu(int client)
     FormatEx(buffer, 64, "%t", "MenuCurrentRooms");
     AddMenuItem(menu, "", buffer, (bClientSpecRoom[client] || bClientInRoom[client] && iClientRoomId[client] != 0) ? ITEMDRAW_DISABLED : ITEMDRAW_DEFAULT);
     FormatEx(buffer, 64, "%t", "MenuCreateNewRoom");
-    AddMenuItem(menu, "", buffer, (!bFlag|| bClientSpecRoom[client] || bClientInRoom[client] && iClientRoomId[client] != 0) ? ITEMDRAW_DISABLED : ITEMDRAW_DEFAULT);
+    AddMenuItem(menu, "", buffer, (!bFlag || bClientSpecRoom[client] || bClientInRoom[client] && iClientRoomId[client] != 0) ? ITEMDRAW_DISABLED : ITEMDRAW_DEFAULT);
     FormatEx(buffer, 64, "%t", "MenuClientCurrentRoom");
     AddMenuItem(menu, "", buffer, (!bClientInRoom[client] && iClientRoomId[client] == 0) ? ITEMDRAW_DISABLED : ITEMDRAW_DEFAULT);
     FormatEx(buffer, 64, "%t", "MenuStatistics");
@@ -150,7 +150,7 @@ void Menu_CreateNewRoom(int client)
 {
     int iPass = GetRandomInt(1111, 9999);
     char buf[48],
-        sPass[11];
+      sPass[11];
     Menu menu = CreateMenu(MenuHandler_CreateNewRoom);
     SetMenuExitButton(menu, true);
     SetMenuTitle(menu, "%s %t", mtag, "MenuNewRoomTitle", iPass);
@@ -198,9 +198,9 @@ void Menu_ClientCurrentRoom(int client, int iRoomId = -1)
         MainMenu(client);
         return;
     }
-    gUno_Menu[client].Uno_Menu = CreateMenu(MenuHandler_UnoMenu);
+    Menu UnoMenu = CreateMenu(MenuHandler_UnoMenu);
     char buffer[512],
-        buf[48];
+      buf[48];
     int iMember = GetRoomMembers(iRoomId);
     if(GetRoomGameStart(iRoomId) == 0)
     {
@@ -210,20 +210,20 @@ void Menu_ClientCurrentRoom(int client, int iRoomId = -1)
             Format(buffer, 512, "%s\n%t", buffer, "MenuWarningCurrentRooms", iMember);
         }
         Format(buffer, 512, "%s\n—><—", buffer);
-        SetMenuTitle(gUno_Menu[client].Uno_Menu, buffer);
+        SetMenuTitle(UnoMenu, buffer);
         FormatEx(buf, 48, "%t", "MenuItemStartGame");
-        AddMenuItem(gUno_Menu[client].Uno_Menu, "", buf, (GetRoomOwner(iRoomId) == GetClientUserId(client) && iMember > 1) ? ITEMDRAW_DEFAULT : ITEMDRAW_DISABLED); // 1 yapmayı unutma
+        AddMenuItem(UnoMenu, "", buf, (GetRoomOwner(iRoomId) == GetClientUserId(client) && iMember > 0) ? ITEMDRAW_DEFAULT : ITEMDRAW_DISABLED); // 1 yapmayı unutma
         FormatEx(buf, 48, "%t", "MenuItemLeaveRoom");
-        AddMenuItem(gUno_Menu[client].Uno_Menu, "", buf);
+        AddMenuItem(UnoMenu, "", buf);
     }
     else
     {
         Format(buffer, 512, "%s\n%t\n", mtag, "MenuTitleClientCurrentRoom", iRoomId, GetRoomPassword(iRoomId), iMember, GetRoomSonKart(iRoomId), GetClientOfUserId(GetNowPlaying(iRoomId)));
-        SetMenuTitle(gUno_Menu[client].Uno_Menu, buffer);
-        DrawClientCards(client);
-        SetMenuExitButton(gUno_Menu[client].Uno_Menu, false);
+        SetMenuTitle(UnoMenu, buffer);
+        DrawClientCards(client, UnoMenu);
+        SetMenuExitButton(UnoMenu, false);
     }
-    DisplayMenu(gUno_Menu[client].Uno_Menu, client, MENU_TIME_FOREVER);
+    DisplayMenu(UnoMenu, client, MENU_TIME_FOREVER);
     DrawSpecMenu(iRoomId, buffer);
 }
 public int MenuHandler_UnoMenu(Menu menu, MenuAction action, int client, int item)
@@ -270,7 +270,7 @@ void Panel_GameInfo(int client)
     SetMenuTitle(InfoPanel, "[UNO]\n%t", "HowToPlayInfo");
     FormatEx(buf, 48, "%t", "MenuBack");
     AddMenuItem(InfoPanel, "", buf);
-    DisplayMenu(InfoPanel, client, 30);    
+    DisplayMenu(InfoPanel, client, 30);
 }
 public int MenuHandler_Default(Menu menu, MenuAction action, int client, int item)
 {
@@ -280,7 +280,8 @@ public int MenuHandler_Default(Menu menu, MenuAction action, int client, int ite
     {
         MainMenu(client);
     }
-    case MenuAction_End: delete menu;
+    case MenuAction_End:
+        delete menu;
     }
 }
 public int MenuHandler_Spec(Menu menu, MenuAction action, int client, int item)
@@ -293,7 +294,8 @@ public int MenuHandler_Spec(Menu menu, MenuAction action, int client, int item)
         GetMenuItem(menu, item, ItemInfo, 11);
         RemoveClientFromRoom(client, StringToInt(ItemInfo));
     }
-    case MenuAction_End: delete menu;
+    case MenuAction_End:
+        delete menu;
     }
 }
 void Menu_Statistics(int client)
@@ -362,7 +364,8 @@ public int MenuHandler_Default2(Menu menu, MenuAction action, int client, int it
     {
         Menu_Statistics(client);
     }
-    case MenuAction_End: delete menu;
+    case MenuAction_End:
+        delete menu;
     }
 }
 public int MenuHandler_TopMenu(Menu menu, MenuAction action, int client, int item)
