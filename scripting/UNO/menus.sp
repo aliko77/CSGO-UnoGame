@@ -223,8 +223,9 @@ void Menu_ClientCurrentRoom(int client, int iRoomId = -1)
         DrawClientCards(client, UnoMenu);
         SetMenuExitButton(UnoMenu, false);
     }
-    DisplayMenu(UnoMenu, client, MENU_TIME_FOREVER);
-    DrawSpecMenu(iRoomId, buffer);
+    DisplayMenu(UnoMenu, client, 20);
+    if(GetRoomSpecMember(iRoomId) > 0)
+        DrawSpecMenu(iRoomId, buffer);
 }
 public int MenuHandler_UnoMenu(Menu menu, MenuAction action, int client, int item)
 {

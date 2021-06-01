@@ -254,9 +254,6 @@ stock void DisplayRoomTop(int iRoomId, int Kazanan)
 {
     int clients[10],
       iSonPuan;
-    Menu TopMenuu = CreateMenu(MenuHandler_TopMenu);
-    SetMenuTitle(TopMenuu, "%s | %t\n", mtag, "MenuTitleTop");
-    SetMenuExitButton(TopMenuu, true);
     for(int i = 0; i < GetArraySize(Rooms_Array); i++)
     {
         int iRoomIdAlt;
@@ -264,51 +261,54 @@ stock void DisplayRoomTop(int iRoomId, int Kazanan)
         GetTrieValue(trie, "RoomId", iRoomIdAlt);
         if(iRoomIdAlt != iRoomId)
             continue;
-        char buf[64];
-        int iTargetScore;
-        GetClientName(Kazanan, buf, 64);
-        iTargetScore = GetClientScore(Kazanan);
-        Format(buf, 64, "%t", "MenuItemTopWinner", buf, iTargetScore);
-        AddMenuItem(TopMenuu, "", buf, ITEMDRAW_DEFAULT);
-        GetTrieArray(trie, "Players", clients, sizeof(clients));
-        for(int ii = 0; ii < sizeof(clients); ii++)
+        for(int a = 1; a <= MaxClients; a++)
         {
-            int target = GetClientOfUserId(clients[ii]);
-            if(target < 1 || !ClientStatus(target))
+            if(!ClientStatus(a) || iClientRoomId[a] == 0 && !bClientInRoom[a] || iClientRoomId[a] != iRoomId)
                 continue;
-            GetClientName(target, buf, 64);
-            iTargetScore = GetClientScore(target);
-            Format(buf, 64, "%t", "MenuItemTop", buf, iTargetScore);
-            if(GetClientUserId(target) == GetClientUserId(Kazanan))
+            Menu TopMenuu = CreateMenu(MenuHandler_TopMenu);
+            SetMenuTitle(TopMenuu, "%s | %t\n", mtag, "MenuTitleTop");
+            SetMenuExitButton(TopMenuu, true);
+            char buf[64];
+            int iTargetScore;
+            GetClientName(Kazanan, buf, 64);
+            iTargetScore = GetClientScore(Kazanan);
+            Format(buf, 64, "%t", "MenuItemTopWinner", buf, iTargetScore);
+            AddMenuItem(TopMenuu, "", buf, ITEMDRAW_DEFAULT);
+            GetTrieArray(trie, "Players", clients, sizeof(clients));
+            for(int ii = 0; ii < sizeof(clients); ii++)
             {
+                int target = GetClientOfUserId(clients[ii]);
+                if(target < 1 || !ClientStatus(target))
+                    continue;
+                GetClientName(target, buf, 64);
+                iTargetScore = GetClientScore(target);
+                Format(buf, 64, "%t", "MenuItemTop", buf, iTargetScore);
+                if(GetClientUserId(target) == GetClientUserId(Kazanan))
+                {
+                    iClientTotalScore[target] += iTargetScore;
+                    iClientTotalWinGame[target]++;
+                    iClientTotalMatch[target]++;
+                    continue;
+                }
                 iClientTotalScore[target] += iTargetScore;
-                iClientTotalWinGame[target]++;
                 iClientTotalMatch[target]++;
-                continue;
+                if(iSonPuan == 0)
+                {
+                    AddMenuItem(TopMenuu, "", buf, ITEMDRAW_DEFAULT);
+                }
+                else if(iTargetScore > iSonPuan)
+                {
+                    InsertMenuItem(TopMenuu, 1, "", buf, ITEMDRAW_DEFAULT);
+                }
+                else
+                {
+                    AddMenuItem(TopMenuu, "", buf, ITEMDRAW_DEFAULT);
+                }
+                iSonPuan = iTargetScore;
             }
-            iClientTotalScore[target] += iTargetScore;
-            iClientTotalMatch[target]++;
-            if(iSonPuan == 0)
-            {
-                AddMenuItem(TopMenuu, "", buf, ITEMDRAW_DEFAULT);
-            }
-            else if(iTargetScore > iSonPuan)
-            {
-                InsertMenuItem(TopMenuu, 1, "", buf, ITEMDRAW_DEFAULT);
-            }
-            else
-            {
-                AddMenuItem(TopMenuu, "", buf, ITEMDRAW_DEFAULT);
-            }
-            iSonPuan = iTargetScore;
+            DisplayMenu(TopMenuu, a, 30);
         }
         break;
-    }
-    for(int a = 1; a <= MaxClients; a++)
-    {
-        if(!ClientStatus(a) || iClientRoomId[a] == 0 && !bClientInRoom[a] || iClientRoomId[a] != iRoomId)
-            continue;
-        DisplayMenu(TopMenuu, a, 30);
     }
 }
 stock void PlayerWonGame(int client, int iRoomId)
@@ -1347,14 +1347,10 @@ stock void DrawSpecMenu(int iRoomId, const char[] title)
         char buf[1024],
           buffer[48],
           sI[11];
-        Format(buf, 1024, "%s\n %t", title, "MenuTitleSpec", GetRoomSpecMember(iRoomId));
-        Menu menu = CreateMenu(MenuHandler_Spec);
-        SetMenuTitle(menu, buf);
-        SetMenuExitButton(menu, true);
         GetTrieArray(trie, "Izleyiciler", clients, sizeof(clients));
-        IntToString(iRoomId, sI, 11);
-        FormatEx(buffer, 48, "%t", "LeaveButton");
-        AddMenuItem(menu, sI, buffer);
+        if(GetRoomSpecMember(iRoomId) < 1)
+            break;
+        Format(buf, 1024, "%s\n %t", title, "MenuTitleSpec", GetRoomSpecMember(iRoomId));
         for(int ii = 0; ii < sizeof(clients); ii++)
         {
             int target = GetClientOfUserId(clients[ii]);
@@ -1363,6 +1359,12 @@ stock void DrawSpecMenu(int iRoomId, const char[] title)
                 clients[ii] = 0;
                 continue;
             }
+            Menu menu = CreateMenu(MenuHandler_Spec);
+            SetMenuTitle(menu, buf);
+            SetMenuExitButton(menu, true);
+            IntToString(iRoomId, sI, 11);
+            FormatEx(buffer, 48, "%t", "LeaveButton");
+            AddMenuItem(menu, sI, buffer);
             DisplayMenu(menu, target, 20);
         }
         break;
