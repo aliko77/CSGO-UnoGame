@@ -212,7 +212,7 @@ void Menu_ClientCurrentRoom(int client, int iRoomId = -1)
         Format(buffer, 512, "%s\n—><—", buffer);
         SetMenuTitle(UnoMenu, buffer);
         FormatEx(buf, 48, "%t", "MenuItemStartGame");
-        AddMenuItem(UnoMenu, "", buf, (GetRoomOwner(iRoomId) == GetClientUserId(client) && iMember > 0) ? ITEMDRAW_DEFAULT : ITEMDRAW_DISABLED); // 1 yapmayı unutma
+        AddMenuItem(UnoMenu, "", buf, (GetRoomOwner(iRoomId) == GetClientUserId(client) && iMember > 1) ? ITEMDRAW_DEFAULT : ITEMDRAW_DISABLED); // 1 yapmayı unutma
         FormatEx(buf, 48, "%t", "MenuItemLeaveRoom");
         AddMenuItem(UnoMenu, "", buf);
     }

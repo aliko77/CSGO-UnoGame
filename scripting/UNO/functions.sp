@@ -626,7 +626,7 @@ stock int GetNowPlaying(int iRoomId)
 }
 stock void CardDistribution(int iRoomId)
 {
-    if(GetRoomGameStart(iRoomId) != 1 || GetRoomMembers(iRoomId) < 1)
+    if(GetRoomGameStart(iRoomId) != 1 || GetRoomMembers(iRoomId) < 2)
         return; // < 2 YAPMAYI UNUTMA
     int clients[10];
     for(int i = 0; i < GetArraySize(Rooms_Array); i++)
